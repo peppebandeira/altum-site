@@ -234,7 +234,9 @@ section{ position:relative; padding:96px 0 40px; scroll-margin-top:88px; }
    HERO
    ============================================================ */
 .hero{
-  background:var(--cream);
+  background:
+    radial-gradient(70% 55% at 12% 0%, rgba(184,146,42,.06) 0%, rgba(184,146,42,0) 55%),
+    linear-gradient(180deg, #F7F2EA 0%, var(--cream) 55%, #F1EADE 100%);
   position:relative;
   padding:100px 0 0;
 }
@@ -294,7 +296,10 @@ section{ position:relative; padding:96px 0 40px; scroll-margin-top:88px; }
 /* ============================================================
    A PERGUNTA
    ============================================================ */
-.pergunta{ background:var(--navy); }
+.pergunta{ background:
+  radial-gradient(85% 70% at 12% 18%, rgba(17,31,55,.95) 0%, rgba(17,31,55,0) 62%),
+  radial-gradient(60% 55% at 88% 92%, rgba(184,146,42,.06) 0%, rgba(184,146,42,0) 58%),
+  var(--navy); }
 
 .pergunta h2{ margin-bottom:44px; }
 .pergunta .after{ max-width:34em; border-left:1px solid rgba(184,146,42,.45); padding-left:22px; }
@@ -306,7 +311,9 @@ section{ position:relative; padding:96px 0 40px; scroll-margin-top:88px; }
 /* ============================================================
    A TESE — o momento pin + scrub
    ============================================================ */
-.tese{ background:var(--navy); padding:0; }
+.tese{ background:
+  linear-gradient(180deg, #0C1A31 0%, var(--navy) 34%, var(--navy) 66%, #081120 100%);
+  padding:0; }
 .tese-stage{
   min-height:100vh; min-height:100svh;
   display:flex; align-items:center;
@@ -353,7 +360,10 @@ section{ position:relative; padding:96px 0 40px; scroll-margin-top:88px; }
 /* ============================================================
    O QUE ENTREGAMOS
    ============================================================ */
-.entrega{ background:var(--navy); }
+.entrega{ background:
+  linear-gradient(164deg, var(--navy-elev) 0%, var(--navy) 46%),
+  radial-gradient(55% 45% at 90% 6%, rgba(245,240,232,.045) 0%, rgba(245,240,232,0) 60%),
+  var(--navy); }
 .entrega-lead{ max-width:14em; margin-bottom:56px; font-size:clamp(2.2rem, 4.8vw, 4.4rem); }
 @media (min-width:768px){ .entrega-lead{ margin-bottom:96px; } }
 .cols{ display:grid; grid-template-columns:1fr; gap:0; }
@@ -383,7 +393,9 @@ section{ position:relative; padding:96px 0 40px; scroll-margin-top:88px; }
 /* ============================================================
    VALORES
    ============================================================ */
-.valores{ padding-top:120px;  background:var(--navy); }
+.valores{ padding-top:120px; background:
+  radial-gradient(70% 80% at 0% 40%, rgba(184,146,42,.05) 0%, rgba(184,146,42,0) 55%),
+  var(--navy); }
 .valor{
   display:grid; grid-template-columns:1fr; gap:8px;
   padding:30px 0 30px 0;
@@ -409,7 +421,9 @@ section{ position:relative; padding:96px 0 40px; scroll-margin-top:88px; }
 /* ============================================================
    A MESA
    ============================================================ */
-.mesa{ background:var(--navy); }
+.mesa{ background:
+  radial-gradient(70% 50% at 50% 0%, rgba(245,240,232,.05) 0%, rgba(245,240,232,0) 58%),
+  linear-gradient(180deg, var(--navy) 0%, var(--navy-elev) 100%); }
 .mesa-head{ margin-bottom:64px; }
 .seats{ display:grid; grid-template-columns:repeat(2,1fr); gap:28px 20px; }
 @media (min-width:768px){ .seats{ grid-template-columns:repeat(3,1fr); gap:56px 48px; } }
@@ -494,7 +508,10 @@ section{ position:relative; padding:96px 0 40px; scroll-margin-top:88px; }
 /* ============================================================
    FECHAMENTO — a virada em Cream
    ============================================================ */
-.aplicar{ background:var(--cream); color:var(--navy); padding-bottom:96px; }
+.aplicar{ background:
+  radial-gradient(80% 60% at 85% 0%, rgba(184,146,42,.07) 0%, rgba(184,146,42,0) 55%),
+  linear-gradient(180deg, #F7F2EA 0%, var(--cream) 40%, #EFE8DB 100%);
+  color:var(--navy); padding-bottom:96px; }
 @media (min-width:1024px){ .aplicar{ padding:180px 0 180px; } }
 .aplicar .label{ color:rgba(10,22,40,.5); }
 .aplicar h2{ color:var(--navy); margin-bottom:20px; }
@@ -563,7 +580,7 @@ section{ position:relative; padding:96px 0 40px; scroll-margin-top:88px; }
 /* ============================================================
    FOOTER
    ============================================================ */
-.foot{ background:var(--navy); padding-block:72px 36px; }
+.foot{ background:linear-gradient(180deg, var(--navy-elev) 0%, #071021 100%); padding-block:72px 36px; }
 .foot-top{
   display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:12px 32px;
   padding-bottom:34px; border-bottom:1px solid var(--hair);
@@ -572,6 +589,13 @@ section{ position:relative; padding:96px 0 40px; scroll-margin-top:88px; }
 .foot-tag{ font-family:var(--display); font-size:clamp(1rem,1.4vw,1.15rem); color:var(--gold); margin:0; font-style:italic; }
 .foot-bot{ display:flex; flex-wrap:wrap; gap:12px 28px; justify-content:space-between; padding-top:26px; }
 .foot-bot p{ margin:0; font-size:11px; letter-spacing:.10em; color:var(--cream-22); text-transform:uppercase; }
+
+/* ── Grão de filme global: nada chapado ── */
+.grain{
+  position:fixed; inset:-2%; z-index:130; pointer-events:none;
+  opacity:.055;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
 
 /* ── Acabamento: seleção, foco, scrollbar ── */
 ::selection{ background:var(--gold); color:var(--navy); }
@@ -660,6 +684,7 @@ section{ position:relative; padding:96px 0 40px; scroll-margin-top:88px; }
 /* ── Faixa cinética ── */
 .ticker{
   position:relative; padding:28px 0;
+  background:linear-gradient(180deg, rgba(17,31,55,.55) 0%, rgba(17,31,55,0) 100%);
   border-top:1px solid var(--hair); border-bottom:1px solid var(--hair);
   overflow:hidden; white-space:nowrap;
 }
@@ -696,6 +721,7 @@ section{ position:relative; padding:96px 0 40px; scroll-margin-top:88px; }
 
 <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
 <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
 
 <!-- ============================== NAV ============================== -->
 <header class="nav" id="nav">
