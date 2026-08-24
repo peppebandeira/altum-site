@@ -297,7 +297,7 @@ section{ position:relative; padding:96px 0 40px; scroll-margin-top:88px; }
 .pergunta{ background:var(--navy); }
 
 .pergunta h2{ margin-bottom:44px; }
-.pergunta .after{ max-width:34em; border-left:1px solid var(--hair); padding-left:22px; }
+.pergunta .after{ max-width:34em; border-left:1px solid rgba(184,146,42,.45); padding-left:22px; }
 @media (min-width:1024px){
   .pergunta .grid{ display:grid; grid-template-columns:1.15fr .85fr; gap:80px; align-items:end; }
   .pergunta h2{ margin-bottom:0; }
@@ -354,10 +354,14 @@ section{ position:relative; padding:96px 0 40px; scroll-margin-top:88px; }
    O QUE ENTREGAMOS
    ============================================================ */
 .entrega{ background:var(--navy); }
-.entrega-lead{ max-width:12em; margin-bottom:56px; }
-@media (min-width:768px){ .entrega-lead{ margin-bottom:88px; } }
+.entrega-lead{ max-width:14em; margin-bottom:56px; font-size:clamp(2.2rem, 4.8vw, 4.4rem); }
+@media (min-width:768px){ .entrega-lead{ margin-bottom:96px; } }
 .cols{ display:grid; grid-template-columns:1fr; gap:0; }
-@media (min-width:900px){ .cols{ grid-template-columns:repeat(3,1fr); gap:0; } }
+@media (min-width:900px){
+  .cols{ grid-template-columns:1.25fr 1fr 1fr; gap:0; align-items:start; }
+  .col:nth-child(2){ margin-top:56px; }
+  .col:nth-child(3){ margin-top:112px; }
+}
 .col{
   position:relative;
   padding:32px 0;
@@ -379,7 +383,7 @@ section{ position:relative; padding:96px 0 40px; scroll-margin-top:88px; }
 /* ============================================================
    VALORES
    ============================================================ */
-.valores{ background:var(--navy); }
+.valores{ padding-top:120px;  background:var(--navy); }
 .valor{
   display:grid; grid-template-columns:1fr; gap:8px;
   padding:30px 0 30px 0;
@@ -559,12 +563,23 @@ section{ position:relative; padding:96px 0 40px; scroll-margin-top:88px; }
 /* ============================================================
    FOOTER
    ============================================================ */
-.foot{ background:var(--navy); padding-block:64px 40px; }
-.foot-top{ padding-bottom:48px; border-bottom:1px solid var(--hair); }
-.foot-mark{ font-family:var(--display); font-size:clamp(2.6rem,9vw,6rem); letter-spacing:.16em; margin:0 0 18px; color:var(--cream); padding-left:.16em; }
-.foot-tag{ font-family:var(--display); font-size:1.05rem; color:var(--gold); margin:0; }
+.foot{ background:var(--navy); padding-block:72px 36px; }
+.foot-top{
+  display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:12px 32px;
+  padding-bottom:34px; border-bottom:1px solid var(--hair);
+}
+.foot-mark{ font-family:var(--display); font-size:clamp(1.6rem,3.2vw,2.3rem); letter-spacing:.22em; margin:0; color:var(--cream); }
+.foot-tag{ font-family:var(--display); font-size:clamp(1rem,1.4vw,1.15rem); color:var(--gold); margin:0; font-style:italic; }
 .foot-bot{ display:flex; flex-wrap:wrap; gap:12px 28px; justify-content:space-between; padding-top:26px; }
 .foot-bot p{ margin:0; font-size:11px; letter-spacing:.10em; color:var(--cream-22); text-transform:uppercase; }
+
+/* ── Acabamento: seleção, foco, scrollbar ── */
+::selection{ background:var(--gold); color:var(--navy); }
+:focus-visible{ outline:2px solid var(--gold); outline-offset:3px; border-radius:2px; }
+::-webkit-scrollbar{ width:11px; }
+::-webkit-scrollbar-track{ background:var(--navy); }
+::-webkit-scrollbar-thumb{ background:var(--navy-surface); border:3px solid var(--navy); border-radius:8px; }
+::-webkit-scrollbar-thumb:hover{ background:rgba(184,146,42,.5); }
 
 /* ============================================================
    MÁSCARA DE REVELAÇÃO — toda imagem entra por baixo
@@ -1152,14 +1167,34 @@ section{ position:relative; padding:96px 0 40px; scroll-margin-top:88px; }
 
   if (typeof ScrollTrigger === 'undefined') return;
 
-  /* ---------- Técnica 1: reveal staggered por seção ---------- */
+  /* ---------- Reveals diferenciados por natureza do conteúdo ---------- */
+  /* texto e blocos: fade curto com deslocamento pequeno (nunca slide teatral) */
   gsap.utils.toArray('section').forEach(function(sec){
     if (sec.classList.contains('hero') || sec.classList.contains('tese')) return;
-    var items = sec.querySelectorAll('h2.display, .lead, .body, .col, .valor, .seat, .seat-group-label, .link-arrow, .field, .btn-solid, .consent');
+    var items = sec.querySelectorAll('h2.display, .lead, .body, .seat-group-label, .link-arrow, .field, .btn-solid, .consent');
     if (!items.length) return;
     gsap.from(items, {
-      opacity: 0, y: 44, scale: 0.97, duration: 0.95, stagger: 0.065, ease: 'expo.out',
-      scrollTrigger: { trigger: sec, start: 'top 78%', toggleActions: 'play none none none' }
+      opacity: 0, y: 14, duration: 0.55, stagger: 0.06, ease: 'power1.out',
+      scrollTrigger: { trigger: sec, start: 'top 80%', toggleActions: 'play none none none' }
+    });
+  });
+  /* colunas da entrega: entram em degrau, acompanhando o offset do grid */
+  gsap.from('.col', {
+    opacity: 0, y: 26, duration: 0.7, stagger: 0.14, ease: 'power2.out',
+    scrollTrigger: { trigger: '.cols', start: 'top 82%', toggleActions: 'play none none none' }
+  });
+  /* valores: deslizam da esquerda, como itens de uma pauta */
+  gsap.utils.toArray('.valor').forEach(function(row, i){
+    gsap.from(row, {
+      opacity: 0, x: -22, duration: 0.6, delay: i * 0.08, ease: 'power2.out',
+      scrollTrigger: { trigger: row, start: 'top 88%', toggleActions: 'play none none none' }
+    });
+  });
+  /* retratos: sobem levemente, coluna a coluna */
+  gsap.utils.toArray('.seats').forEach(function(grid){
+    gsap.from(grid.querySelectorAll('.seat'), {
+      opacity: 0, y: 20, duration: 0.6, stagger: 0.1, ease: 'power2.out',
+      scrollTrigger: { trigger: grid, start: 'top 85%', toggleActions: 'play none none none' }
     });
   });
 
