@@ -1092,7 +1092,7 @@ section{ position:relative; padding:96px 0; scroll-margin-top:88px; }
         <button class="btn-solid" type="submit">Começar uma conversa</button>
 
         <div class="confirm" id="confirm">
-          <p>Recebemos. Uma pessoa lê e responde em até 2 dias úteis.</p>
+          <p>Abrimos seu WhatsApp com a mensagem pronta — é só enviar. Uma pessoa lê e responde em até 2 dias úteis.</p>
         </div>
       </form>
     </div>
@@ -1396,10 +1396,50 @@ document.addEventListener('DOMContentLoaded', function(){
         return;
       }
 
-      /* TODO: POST para Supabase / endpoint da ALTUM */
+      /* 1) Captura garantida: envia o lead por e-mail (fire-and-forget) */
+      try {
+        fetch('https://formsubmit.co/ajax/giuseppe@okcriativo.com.br', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            _subject: 'Novo lead do site ALTUM',
+            _template: 'table',
+            _captcha: 'false',
+            Nome: document.getElementById('nome').value.trim(),
+            Empresa: document.getElementById('empresa').value.trim(),
+            Site: document.getElementById('site').value.trim(),
+            'Faturamento anual': document.getElementById('faturamento').value,
+            'Tempo de operacao': document.getElementById('tempo').value,
+            'O que travou': document.getElementById('travou').value.trim(),
+            'E-mail': document.getElementById('email').value.trim(),
+            WhatsApp: document.getElementById('whats').value.trim()
+          })
+        }).catch(function(){});
+      } catch (e) {}
+
+      /* 2) Abre a conversa no WhatsApp da ALTUM */
+      var WHATS_ALTUM = '5561991933909'; /* ALTUM_WHATS */
+      var g = function(id){ var el = document.getElementById(id); return el ? el.value.trim() : ''; };
+      var linhas = [
+        'Ol\u00e1! Vim pelo site da ALTUM e quero come\u00e7ar uma conversa.',
+        '',
+        '*Nome:* ' + g('nome'),
+        '*Empresa:* ' + g('empresa'),
+        g('site') ? '*Site:* ' + g('site') : null,
+        '*Faturamento anual:* ' + g('faturamento'),
+        '*Tempo de opera\u00e7\u00e3o:* ' + g('tempo'),
+        '*E-mail:* ' + g('email'),
+        g('whats') ? '*WhatsApp:* ' + g('whats') : null,
+        '',
+        '*O que travou:*',
+        g('travou')
+      ].filter(function(x){ return x !== null; });
+      var url = 'https://wa.me/' + WHATS_ALTUM + '?text=' + encodeURIComponent(linhas.join('\n'));
+      window.open(url, '_blank', 'noopener');
+
       var confirm = document.getElementById('confirm');
       confirm.classList.add('is-on');
-      gsap.from(confirm, { opacity: 0, y: 20, duration: 0.7, ease: 'expo.out' });
+      if (typeof gsap !== 'undefined') gsap.from(confirm, { opacity: 0, y: 20, duration: 0.7, ease: 'expo.out' });
       form.querySelector('.btn-solid').style.display = 'none';
     });
   }
