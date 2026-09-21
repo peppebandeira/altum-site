@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    { "source": "/aulaclevel", "destination": "https://altum-presenca.vercel.app/aula" },
+    { "source": "/conselho", "destination": "https://altum-presenca.vercel.app/conselho" },
+    { "source": "/_next/:path*", "destination": "https://altum-presenca.vercel.app/_next/:path*" },
+    { "source": "/convidados/:path*", "destination": "https://altum-presenca.vercel.app/convidados/:path*" }
+  ]
+}
