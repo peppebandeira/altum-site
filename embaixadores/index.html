@@ -506,6 +506,9 @@ section{ position:relative; scroll-margin-top:72px; }
 
 @media (max-width:600px){ .bonus .degrau b{ font-size:1rem; } .bonus .degrau small{ font-size:10.5px; letter-spacing:.04em; } .bonus .degrau{ padding:12px 8px 10px; } .degrau.d1{ height:44%; } }
 
+.regra-grid{ align-items:center; }
+@media (min-width:1024px){ .regra-media{ position:relative; top:auto; max-height:600px; } }
+
 /* reveal só quando o JS assume */
 .js .rv{ opacity:0; transform:translateY(18px); }
 @media (prefers-reduced-motion:reduce){
@@ -749,13 +752,6 @@ section{ position:relative; scroll-margin-top:72px; }
         <div class="rb rv">
           <h3 class="display">Você recebe quando o dinheiro entra.</h3>
           <p>A comissão é paga quando o pagamento do membro compensa. Se ele parcelar no cartão de crédito, você recebe a comissão integral assim que a primeira parcela compensa. Nos outros parcelamentos, você recebe a cada parcela compensada.</p>
-        </div>
-        <div class="rb rv">
-          <h3 class="display">Se o membro sair</h3>
-          <div class="claws">
-            <div class="claw"><small>Em até 90 dias</small><b>100%</b><p>Você devolve 100% da comissão.</p><div class="bar" style="--w:100%"><i></i></div></div>
-            <div class="claw"><small>Entre 90 e 180 dias</small><b>50%</b><p>Você devolve 50% da comissão.</p><div class="bar" style="--w:50%"><i></i></div></div>
-          </div>
         </div>
       </div>
     </div>
@@ -1073,14 +1069,43 @@ document.addEventListener('DOMContentLoaded', function(){
     var lg = document.getElementById('lgpd'); document.getElementById('fLgpd').classList.toggle('has-error', !lg.checked); if (!lg.checked) ok = false;
     if (!ok) { var first = form.querySelector('.has-error input, .has-error select'); if (first) first.focus(); return; }
     var send = document.getElementById('send'); send.disabled = true;
+
+    /* Lead no Syncro: funil Embaixadores, etapa Novo cadastro (formulário 56).
+       Se o Syncro falhar, o e-mail do FormSubmit segura o contato. */
+    var zap = g('whats').replace(/\D/g, '');
+    if (zap.length === 10 || zap.length === 11) zap = '55' + zap;
+    var corpo = {
+      f1791286485630: g('nome'),
+      f1791286498407: '+' + zap,
+      f1791286499678: g('email'),
+      f1791286500940: g('empresa'),
+      f1791286508315: tipo,
+      f1791286522181: g('segmento'),
+      f1791286523457: g('base'),
+      f1791286533052: 'Embaixador',
+      _website_url: ''
+    };
     try {
-      fetch('https://formsubmit.co/ajax/giuseppe@okcriativo.com.br', {
-        method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({ _subject: 'Novo embaixador | site ALTUM', _template: 'table', _captcha: 'false',
-          Origem: 'Página Embaixadores', Tipo: tipo, Nome: g('nome'), WhatsApp: g('whats'), 'E-mail': g('email'),
-          'Empresa ou ecossistema': g('empresa'), Segmento: g('segmento'), 'Donos de empresa que atende': g('base') })
-      }).catch(function(){});
+      var busca = new URLSearchParams(location.search);
+      ['utm_source','utm_medium','utm_campaign','utm_term','utm_content'].forEach(function(k){ var v = busca.get(k); if (v) corpo['_' + k] = v; });
     } catch (e) {}
+    function reserva(){
+      try {
+        fetch('https://formsubmit.co/ajax/giuseppe@okcriativo.com.br', {
+          method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({ _subject: 'Novo embaixador | site ALTUM (Syncro falhou)', _template: 'table', _captcha: 'false',
+            Origem: 'Página Embaixadores', Tipo: tipo, Nome: g('nome'), WhatsApp: g('whats'), 'E-mail': g('email'),
+            'Empresa ou ecossistema': g('empresa'), Segmento: g('segmento'), 'Donos de empresa que atende': g('base') })
+        }).catch(function(){});
+      } catch (e) {}
+    }
+    try {
+      fetch('https://app.syncro.chat/api/form/embaixadores-do-altum-phW36rLnbm/submit', {
+        method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(corpo), keepalive: true
+      }).then(function(r){ return r.json(); }).then(function(j){ if (!j || !j.success) reserva(); }).catch(reserva);
+    } catch (e) { reserva(); }
+
     var linhas = [
       'Olá! Vim pela página de Embaixadores do ALTUM e quero ser embaixador.', '',
       '*Nome:* ' + g('nome'), '*Sou:* ' + tipo,
