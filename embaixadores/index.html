@@ -10,18 +10,19 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preload" as="image" href="/embaixadores/emb-hero-1400.webp" imagesrcset="/embaixadores/emb-hero-800.webp 800w, /embaixadores/emb-hero-1400.webp 1400w, /embaixadores/emb-hero-2400.webp 2400w" imagesizes="(min-width:1024px) 46vw, 100vw">
 <meta name="theme-color" content="#0A1628">
-<meta name="description" content="Programa de embaixadores do ALTUM. Contabilidades, BPOs, escritórios de advocacia, corretoras, boutiques de M&A e ecossistemas que atendem donos de empresa recebem de 10% a 15% por cada membro que entrar na Cúpula.">
+<meta name="description" content="Programa de embaixadores do ALTUM. Contabilidades, BPOs, escritórios de advocacia, corretoras, boutiques de M&A e ecossistemas que atendem donos de empresa recebem de 10% a 15% por cada membro que entrar no Cúpula.">
 <meta property="og:title" content="Embaixadores do ALTUM">
 <meta property="og:description" content="O ativo mais valioso da sua empresa não aparece no balanço. São os donos de empresa que confiam em você.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://altumecossistema.com.br/embaixadores">
-<meta property="og:image" content="https://altumecossistema.com.br/og-altum.jpg">
+<meta property="og:image" content="https://altumecossistema.com.br/embaixadores/og-embaixadores.jpg">
+<meta property="og:image:alt" content="O ativo mais valioso da sua empresa não aparece no balanço. Embaixadores do ALTUM.">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="ALTUM">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://altumecossistema.com.br/og-altum.jpg">
+<meta name="twitter:image" content="https://altumecossistema.com.br/embaixadores/og-embaixadores.jpg">
 <script>document.documentElement.classList.add('js');</script>
 
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -32,7 +33,7 @@
 
 <style>
 /* ============================================================
-   EMBAIXADORES DO ALTUM — v3
+   EMBAIXADORES DO ALTUM v3
    Regra: degradê só em fundo (BG). Nada de degradê sobre foto ou elemento.
    ============================================================ */
 :root{
@@ -460,6 +461,51 @@ section{ position:relative; scroll-margin-top:72px; }
 .range::-webkit-slider-runnable-track{ border-radius:4px; }
 .range::-moz-range-track, .range::-moz-range-progress{ border-radius:4px; }
 
+
+/* ---------- leitura de botões e rótulos (ajuste 06/out) ---------- */
+.btn-gold, .btn-solid{ font-size:13.5px; font-weight:700; letter-spacing:.1em; }
+.btn-line{ font-size:12.5px; font-weight:700; letter-spacing:.1em; }
+.btn-text{ font-size:13.5px; font-weight:700; letter-spacing:.1em; }
+@media (max-width:420px){ .btn-line{ font-size:11px; letter-spacing:.06em; padding:9px 11px; } }
+.switch button{ font-size:12.5px; font-weight:700; letter-spacing:.08em; }
+.path-tag{ font-size:12px; font-weight:700; letter-spacing:.1em; }
+.sim-label, .rlabel, .drag-hint, .exemplo em, .presente span, .degrau small, .claw small, .zona-legend{ font-size:12.5px; font-weight:700; letter-spacing:.1em; }
+.marks{ font-size:12.5px; font-weight:700; }
+.seg button{ font-size:14px; font-weight:700; }
+.field > label{ font-size:12.5px; font-weight:700; letter-spacing:.1em; }
+.tipo label{ font-size:12.5px; font-weight:700; letter-spacing:.08em; }
+.stat em{ font-size:13.5px; }
+.degrau span{ font-size:14px; }
+.pilares li::before, .crit li::before{ font-size:13px; font-weight:700; }
+
+/* ---------- calculadora + bônus lado a lado ---------- */
+.calc-title{ font-size:clamp(2rem,4vw,3.6rem); margin:110px 0 36px; max-width:14em; }
+.calc{ display:grid; grid-template-columns:1fr; gap:16px; align-items:stretch; }
+@media (min-width:1100px){ .calc{ grid-template-columns:1.12fr .88fr; gap:18px; } }
+.calc .sim{ margin-top:0; }
+@media (min-width:1024px) and (max-width:1339px){ .calc .sim{ grid-template-columns:1fr; } }
+.calc .sim-in{ padding:32px 24px; }
+.calc .sim-res{ padding:32px 24px 34px; }
+@media (min-width:768px){ .calc .sim-in, .calc .sim-res{ padding:44px 40px; } }
+.calc .sim-res output{ font-size:clamp(3rem,4.2vw,4.1rem); }
+.calc .sim-sub{ margin:0 0 30px; }
+.bonus{ background:var(--navy-surface); border:1px solid var(--hair); border-radius:calc(var(--r) + 6px); padding:32px 24px; display:flex; flex-direction:column; }
+@media (min-width:768px){ .bonus{ padding:40px 34px; } }
+.bonus h3{ font-size:clamp(1.6rem,2.4vw,2.2rem); margin:0 0 8px; }
+.bonus-sub{ margin:0 0 26px; font-size:15px; line-height:1.5; color:var(--cream-70); }
+.bonus .escada{ height:300px; }
+.bonus .presente{ margin-top:auto; }
+.bonus .escada{ margin-bottom:14px; }
+.bonus .degrau b{ font-size:clamp(1.05rem,1.6vw,1.5rem); }
+.bonus .degrau{ background:var(--navy); }
+.bonus .degrau.on{ background:var(--gold); }
+.bonus .presente{ background:var(--navy); }
+.bonus .presente.on{ background:var(--gold); }
+.bonus .presente.on b, .bonus .presente.on span{ color:var(--navy); }
+.bonus .degrau{ padding:14px 12px 12px; }
+
+@media (max-width:600px){ .bonus .degrau b{ font-size:1rem; } .bonus .degrau small{ font-size:10.5px; letter-spacing:.04em; } .bonus .degrau{ padding:12px 8px 10px; } .degrau.d1{ height:44%; } }
+
 /* reveal só quando o JS assume */
 .js .rv{ opacity:0; transform:translateY(18px); }
 @media (prefers-reduced-motion:reduce){
@@ -474,7 +520,7 @@ section{ position:relative; scroll-margin-top:72px; }
 <div class="progress" id="progress" aria-hidden="true"></div>
 
 <header class="nav" id="nav">
-  <a href="/" class="brand" aria-label="ALTUM — página inicial">ALTUM</a>
+  <a href="/" class="brand" aria-label="ALTUM, página inicial">ALTUM</a>
   <a class="btn-line" href="#seja">Quero ser embaixador</a>
 </header>
 
@@ -504,7 +550,7 @@ section{ position:relative; scroll-margin-top:72px; }
       <span class="ln">da sua empresa</span>
       <span class="ln gold">não aparece no balanço.</span>
     </h1>
-    <p class="hero-sub" id="heroSub">São os donos de empresa que confiam em você. Seja embaixador do ALTUM e receba de 10% a 15% por cada um que entrar na Cúpula.</p>
+    <p class="hero-sub" id="heroSub">São os donos de empresa que confiam em você. <span class="gold">Seja embaixador do ALTUM e receba de 10% a 15% por cada um que entrar no Cúpula.</span></p>
     <div class="hero-cta" id="heroCta">
       <a class="btn-gold" href="#seja">Quero ser embaixador
         <svg width="18" height="10" viewBox="0 0 18 10" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M0 5h16M12 1l4 4-4 4"/></svg>
@@ -512,7 +558,7 @@ section{ position:relative; scroll-margin-top:72px; }
       <a class="btn-text" href="#simulador">Faça a conta</a>
     </div>
     <div class="stats" id="stats">
-      <div class="stat"><b><span data-count="10">10</span>% a <span data-count="15">15</span>%</b><em>por membro que entrar na Cúpula</em></div>
+      <div class="stat"><b><span data-count="10">10</span>% a <span data-count="15">15</span>%</b><em>por membro que entrar no Cúpula</em></div>
       <div class="stat"><b>R$<span data-count="5000" data-fmt="1">5.000</span></b><em>de bônus no mês, com 20 membros</em></div>
       <div class="stat"><b>R$0</b><em>para ser embaixador</em></div>
     </div>
@@ -527,7 +573,7 @@ section{ position:relative; scroll-margin-top:72px; }
         <p class="ab-big rv">Você tem dezenas de CNPJs na sua base. Às vezes, centenas.</p>
         <p class="ab-txt rv">Sabe quanto cada um fatura. Sabe quem está crescendo e quem parou de andar. E quando um deles pergunta <em>“você conhece alguém que…”</em>, você indica.</p>
         <p class="ab-grace" id="deGraca">De graça.</p>
-        <p class="ab-term rv">Aqui dentro isso tem nome: <strong>zona de influência econômica</strong>. É tudo o que está ao seu redor — clientes, contatos, confiança — e nunca virou receita.</p>
+        <p class="ab-term rv">Aqui dentro isso tem nome: <strong>zona de influência econômica</strong>. É tudo o que está ao seu redor: clientes, contatos, confiança. E nunca virou receita.</p>
         <p class="ab-close rv">O programa de embaixadores existe para isso.</p>
       </div>
       <figure class="zona" id="zona" style="margin:0;" aria-label="Diagrama: a sua zona de influência econômica, com os clientes ao seu redor">
@@ -564,10 +610,10 @@ section{ position:relative; scroll-margin-top:72px; }
     </div>
 
     <div class="mesa-body">
-      <p class="mesa-lead rv">A Cúpula reúne donos de empresa que já construíram e sentem que a empresa parou de acompanhar.</p>
-      <ul class="pilares" id="pilares" aria-label="O que a Cúpula reúne">
+      <p class="mesa-lead rv">O Cúpula reúne donos de empresa que já construíram e sentem que a empresa parou de acompanhar.</p>
+      <ul class="pilares" id="pilares" aria-label="O que o Cúpula reúne">
         <li>Conselho estratégico</li>
-        <li>Aulas com C-levels</li>
+        <li>Aulas com C-levels de empresas consolidadas</li>
         <li>Plantão para destravar decisões</li>
         <li>Encontros presenciais</li>
       </ul>
@@ -576,12 +622,12 @@ section{ position:relative; scroll-margin-top:72px; }
 </section>
 
 <!-- ============================== CENA ============================== -->
-<section class="cena" id="cena" aria-label="Seu cliente sai da mesa melhor">
+<section class="cena" id="cena" aria-label="Seu cliente sai melhor do que chegou">
   <div class="cena-stick">
     <img id="cenaImg" src="/embaixadores/emb-armazem-2400.webp" srcset="/embaixadores/emb-armazem-1200.webp 1200w, /embaixadores/emb-armazem-2400.webp 2400w" sizes="100vw" width="2400" height="1600" alt="Grupo de empresários do ALTUM em visita técnica a um grande armazém" loading="lazy" decoding="async">
     <div class="cena-card" id="cenaCard">
-      <p>Seu cliente sai da mesa melhor.</p>
-      <p>E lembra quem o levou até ela.</p>
+      <p>Seu cliente sai melhor do que chegou.</p>
+      <p>E lembra quem o levou ao caminho do resultado.</p>
     </div>
   </div>
 </section>
@@ -608,7 +654,7 @@ section{ position:relative; scroll-margin-top:72px; }
           <h3 class="display">Você abre a porta. <span class="gold">O ALTUM faz o resto.</span></h3>
           <ol class="steps">
             <li>Você convida a sua base.</li>
-            <li>O ALTUM monta o encontro: conteúdo de nível, sócios e conselheiros na sala, e a apresentação da Cúpula.</li>
+            <li>O ALTUM monta o encontro: conteúdo de nível, sócios e conselheiros na sala, e a apresentação do Cúpula.</li>
             <li>A cada membro que entrar, você recebe 10%.</li>
           </ol>
           <div class="path-pct"><b>10%</b><small>por membro que entrar a partir do encontro.</small></div>
@@ -624,7 +670,7 @@ section{ position:relative; scroll-margin-top:72px; }
         <div class="path-body">
           <h3 class="display">Você fecha. <span class="gold">E recebe mais.</span></h3>
           <ol class="steps">
-            <li>Você apresenta a Cúpula para quem conhece.</li>
+            <li>Você apresenta o Cúpula para quem conhece.</li>
             <li>10% por venda.</li>
             <li>Se você fechar sozinho, sem ajuda de nenhum sócio e com o pagamento feito, recebe 15%.</li>
           </ol>
@@ -639,53 +685,50 @@ section{ position:relative; scroll-margin-top:72px; }
 <section class="ganhos" id="ganhos">
   <div class="wrap">
     <div class="pcts">
-      <div class="pct rv"><b><span data-count="10">10</span><i>%</i></b><p>por membro que entrar na Cúpula.</p></div>
+      <div class="pct rv"><b><span data-count="10">10</span><i>%</i></b><p>por membro que entrar no Cúpula.</p></div>
       <div class="pct rv"><b><span data-count="15">15</span><i>%</i></b><p>quando você fecha sozinho, com o pagamento feito. Não vale em evento.</p></div>
     </div>
 
-    <div class="escada-wrap">
-      <div class="escada-copy">
-        <h2 class="display reveal">Os bônus não somam.</h2>
-        <p class="rv">Vale a maior faixa que você atingir no mês.</p>
+    <h2 class="display reveal calc-title">Faça a conta com a sua carteira.</h2>
+    <div class="calc">
+      <div class="sim" id="simulador">
+        <div class="sim-in">
+          <p class="sim-sub">Simule o seu mês.</p>
+          <label class="sim-label" for="simN"><span>Membros no mês</span><output id="simNOut" for="simN">8</output></label>
+          <input class="range" type="range" id="simN" min="1" max="25" step="1" value="8" aria-describedby="simTotal">
+          <div class="marks" aria-hidden="true"><span>1</span><span>8</span><span>15</span><span>20</span><span>25</span></div>
+          <p class="drag-hint" aria-hidden="true">Arraste
+            <svg width="22" height="10" viewBox="0 0 22 10" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M0 5h20M16 1l4 4-4 4"/></svg>
+          </p>
+          <div class="seg" role="group" aria-label="Como a venda foi fechada">
+            <button type="button" id="mEvt" aria-pressed="true"><b>10%</b>No encontro, com o ALTUM</button>
+            <button type="button" id="mSolo" aria-pressed="false"><b>15%</b>Você fechou sozinho</button>
+          </div>
+        </div>
+        <div class="sim-res">
+          <div>
+            <p class="rlabel">Você recebe no mês</p>
+            <output id="simTotal" aria-live="polite">R$5.800</output>
+          </div>
+          <div>
+            <div class="sim-rows">
+              <div class="sim-row"><span>Comissão</span><span id="simCom">R$4.800</span></div>
+              <div class="sim-row"><span>Bônus do mês</span><span id="simBon">R$1.000</span></div>
+            </div>
+            <p class="sim-gift" id="simGift" style="margin-top:16px;"></p>
+          </div>
+        </div>
       </div>
-      <div>
-        <div class="escada" id="escada" aria-label="Bônus por faixa de membros no mês">
+      <aside class="bonus" aria-label="Bônus por faixa de membros no mês">
+        <h3 class="display">Os bônus não somam.</h3>
+        <p class="bonus-sub">Vale a maior faixa que você atingir no mês.</p>
+        <div class="escada" id="escada">
           <div class="degrau d1" data-t="8"><b>+ R$1.000</b><div><small>8 membros</small><span>no mês</span></div></div>
           <div class="degrau d2" data-t="15"><b>+ R$3.000</b><div><small>15 membros</small><span>no mês</span></div></div>
           <div class="degrau d3" data-t="20"><b>+ R$5.000</b><div><small>20 membros</small><span>no mês</span></div></div>
         </div>
         <div class="presente" id="presente"><b>1 ano de Cúpula para você</b><span>10 membros no total</span></div>
-      </div>
-    </div>
-
-    <div class="sim" id="simulador">
-      <div class="sim-in">
-        <h2 class="display reveal">Faça a conta com a sua carteira.</h2>
-        <p class="sim-sub">Simule o seu mês.</p>
-        <label class="sim-label" for="simN"><span>Membros no mês</span><output id="simNOut" for="simN">8</output></label>
-        <input class="range" type="range" id="simN" min="1" max="25" step="1" value="8" aria-describedby="simTotal">
-        <div class="marks" aria-hidden="true"><span>1</span><span>8</span><span>15</span><span>20</span><span>25</span></div>
-        <p class="drag-hint" aria-hidden="true">Arraste
-          <svg width="22" height="10" viewBox="0 0 22 10" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M0 5h20M16 1l4 4-4 4"/></svg>
-        </p>
-        <div class="seg" role="group" aria-label="Como a venda foi fechada">
-          <button type="button" id="mEvt" aria-pressed="true"><b>10%</b>No encontro, com o ALTUM</button>
-          <button type="button" id="mSolo" aria-pressed="false"><b>15%</b>Você fechou sozinho</button>
-        </div>
-      </div>
-      <div class="sim-res">
-        <div>
-          <p class="rlabel">Você recebe no mês</p>
-          <output id="simTotal" aria-live="polite">R$5.800</output>
-        </div>
-        <div>
-          <div class="sim-rows">
-            <div class="sim-row"><span>Comissão</span><span id="simCom">R$4.800</span></div>
-            <div class="sim-row"><span>Bônus do mês</span><span id="simBon">R$1.000</span></div>
-          </div>
-          <p class="sim-gift" id="simGift" style="margin-top:16px;"></p>
-        </div>
-      </div>
+      </aside>
     </div>
     <div class="exemplos">
       <button type="button" class="exemplo" data-n="8" data-solo="0">Um escritório que leva 8 clientes num mês recebe <strong>R$5.800</strong>.<em>Ver na simulação</em></button>
@@ -705,7 +748,7 @@ section{ position:relative; scroll-margin-top:72px; }
         <h2 class="display reveal">Regra escrita antes, para não haver conversa depois.</h2>
         <div class="rb rv">
           <h3 class="display">Você recebe quando o dinheiro entra.</h3>
-          <p>A comissão é paga quando o pagamento do membro compensa. Se ele pagar parcelado, você recebe a cada parcela compensada.</p>
+          <p>A comissão é paga quando o pagamento do membro compensa. Se ele parcelar no cartão de crédito, você recebe a comissão integral assim que a primeira parcela compensa. Nos outros parcelamentos, você recebe a cada parcela compensada.</p>
         </div>
         <div class="rb rv">
           <h3 class="display">Se o membro sair</h3>
@@ -1033,7 +1076,7 @@ document.addEventListener('DOMContentLoaded', function(){
     try {
       fetch('https://formsubmit.co/ajax/giuseppe@okcriativo.com.br', {
         method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({ _subject: 'Novo embaixador — site ALTUM', _template: 'table', _captcha: 'false',
+        body: JSON.stringify({ _subject: 'Novo embaixador | site ALTUM', _template: 'table', _captcha: 'false',
           Origem: 'Página Embaixadores', Tipo: tipo, Nome: g('nome'), WhatsApp: g('whats'), 'E-mail': g('email'),
           'Empresa ou ecossistema': g('empresa'), Segmento: g('segmento'), 'Donos de empresa que atende': g('base') })
       }).catch(function(){});
