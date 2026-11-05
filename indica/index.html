@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Indicação de embaixador | ALTUM</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Indique um dono de empresa para o Cúpula do ALTUM.">
+<meta property="og:title" content="Indicação de embaixador | ALTUM">
+<meta property="og:description" content="Indique um dono de empresa para o Cúpula do ALTUM.">
+<meta property="og:image" content="https://altumecossistema.com.br/embaixadores/og-embaixadores.jpg">
+<meta name="theme-color" content="#0A1628">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32">
+<style>
+:root{
+  --navy:#0A1628; --navy-surface:#111F37; --gold:#B8922A; --gold-deep:#8A6E1E; --cream:#F5F0E8; --stone:#6B6359;
+  --hair:rgba(245,240,232,.14);
+  --display:Georgia,'Times New Roman',serif; --ui:Arial,Helvetica,sans-serif;
+  --ease:cubic-bezier(0.22,1,0.36,1);
+  --pad-x:20px; --r:16px; --r-sm:8px;
+}
+@media (min-width:768px){ :root{ --pad-x:48px; } }
+*,*::before,*::after{ box-sizing:border-box; }
+html{ -webkit-text-size-adjust:100%; }
+html,body{ margin:0; padding:0; }
+body{ background:var(--navy); color:var(--cream); font-family:var(--ui); font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased; }
+a{ color:inherit; }
+button{ font-family:inherit; }
+.display{ font-family:var(--display); font-weight:400; letter-spacing:-0.02em; line-height:1.08; margin:0; }
+
+.nav{ display:flex; align-items:center; justify-content:space-between; padding:18px var(--pad-x); border-bottom:1px solid var(--hair); }
+.brand{ font-family:var(--display); font-size:20px; letter-spacing:.30em; padding-left:.3em; color:var(--cream); text-decoration:none; }
+.nav small{ font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--gold); }
+
+.wrap{ width:100%; max-width:1120px; margin-inline:auto; padding-inline:var(--pad-x); }
+.topo{ padding:56px 0 44px; }
+@media (min-width:1024px){ .topo{ padding:88px 0 64px; } }
+.topo h1{ font-size:clamp(2rem,5.4vw,3.6rem); max-width:13em; }
+.topo h1 .gold{ color:var(--gold); }
+.topo p{ margin:22px 0 0; max-width:36em; font-size:17px; color:rgba(245,240,232,.78); }
+.topo p b{ color:var(--cream); font-weight:700; }
+
+.painel{ background:var(--cream); color:var(--navy); border-radius:22px; padding:28px 22px 34px; margin-bottom:72px; }
+@media (min-width:768px){ .painel{ padding:48px 52px 56px; } }
+.regra{ display:flex; gap:14px; align-items:flex-start; border:1px solid rgba(10,22,40,.16); border-radius:var(--r); padding:16px 18px; font-size:14.5px; line-height:1.5; color:var(--stone); }
+.regra svg{ flex:0 0 auto; margin-top:2px; }
+.regra b{ color:var(--navy); }
+
+.form-row{ display:grid; grid-template-columns:1fr; gap:0; }
+@media (min-width:640px){ .form-row.two{ grid-template-columns:1fr 1fr; gap:0 32px; } }
+.field{ position:relative; padding-top:26px; }
+.field > label{ display:block; font-size:12.5px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:rgba(10,22,40,.62); margin-bottom:9px; }
+.field input, .field select, .field textarea{ width:100%; background:transparent; border:0; border-bottom:1px solid rgba(10,22,40,.28); color:var(--navy); font-family:var(--ui); font-size:16px; padding:10px 0; border-radius:0; transition:border-color .4s var(--ease); }
+.field textarea{ resize:vertical; min-height:84px; line-height:1.5; }
+.field select{ -webkit-appearance:none; appearance:none; cursor:pointer;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%230A1628' stroke-opacity='.55' stroke-width='1' fill='none'/%3E%3C/svg%3E");
+  background-repeat:no-repeat; background-position:right 2px center; }
+.field input:focus, .field select:focus, .field textarea:focus{ outline:none; border-bottom-color:var(--navy); }
+.field input::placeholder, .field textarea::placeholder{ color:rgba(10,22,40,.34); }
+.err{ font-size:12.5px; color:var(--gold-deep); margin:9px 0 0; display:none; }
+.field.has-error input, .field.has-error select{ border-bottom-color:var(--gold-deep); }
+.field.has-error .err{ display:block; }
+.opt{ font-weight:400; text-transform:none; letter-spacing:0; color:rgba(10,22,40,.45); }
+
+.consent{ display:flex; gap:12px; align-items:flex-start; margin-top:30px; font-size:14.5px; line-height:1.5; color:var(--navy); cursor:pointer; }
+.consent input{ width:18px; height:18px; margin-top:2px; accent-color:var(--navy); flex:0 0 auto; border-radius:4px; }
+.consent.has-error span{ color:var(--gold-deep); }
+
+.acoes{ margin-top:34px; display:flex; flex-wrap:wrap; gap:16px; align-items:center; }
+.btn-gold{ display:inline-flex; align-items:center; gap:14px; background:var(--navy); color:var(--cream); border:1px solid var(--navy); border-radius:var(--r-sm); font-size:13.5px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:18px 28px; min-height:54px; cursor:pointer; transition:background-color .45s var(--ease), color .45s var(--ease), border-color .45s var(--ease); }
+.btn-gold:hover{ background:var(--gold); border-color:var(--gold); color:var(--navy); }
+.btn-gold[disabled]{ opacity:.55; cursor:wait; }
+.btn-gold svg{ transition:transform .45s var(--ease); }
+.btn-gold:hover svg{ transform:translateX(5px); }
+.btn-line{ display:inline-block; font-size:12.5px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--navy); border:1px solid rgba(10,22,40,.35); border-radius:var(--r-sm); padding:14px 20px; background:transparent; cursor:pointer; text-decoration:none; }
+.btn-line:hover{ border-color:var(--navy); }
+.falha{ font-size:14px; color:var(--gold-deep); margin:0; display:none; }
+
+.estado{ display:none; padding:8px 0 4px; }
+.estado .marca{ width:52px; height:52px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin-bottom:22px; }
+.estado.ok .marca{ background:var(--navy); }
+.estado.dup .marca{ border:1px solid var(--gold-deep); }
+.estado h2{ font-size:clamp(1.6rem,3.6vw,2.4rem); max-width:16em; }
+.estado p{ margin:16px 0 0; max-width:34em; color:var(--stone); font-size:16px; }
+.estado .aviso{ margin-top:18px; padding:14px 16px; border-radius:12px; background:rgba(138,110,30,.10); color:var(--navy); font-size:14.5px; }
+
+.invalido{ display:none; padding:64px 0 96px; }
+.invalido h1{ font-size:clamp(1.9rem,4.6vw,3rem); max-width:14em; }
+.invalido p{ margin:18px 0 0; max-width:34em; color:rgba(245,240,232,.75); }
+.invalido a{ color:var(--gold); }
+
+.rod{ padding:0 0 40px; font-size:13px; color:rgba(245,240,232,.5); }
+.rod span{ color:var(--gold); font-family:var(--display); }
+.sr{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <a href="/" class="brand" aria-label="ALTUM, página inicial">ALTUM</a>
+  <small>Indicação</small>
+</header>
+
+<main class="wrap">
+
+  <section class="invalido" id="invalido" aria-live="polite">
+    <h1 class="display">Este link de indicação não está ativo.</h1>
+    <p>Confira se o endereço foi copiado inteiro. Se você é embaixador do ALTUM e o link parou de funcionar, <a href="https://wa.me/5561991933909">fale com a gente no WhatsApp</a>.</p>
+  </section>
+
+  <div id="conteudo">
+    <section class="topo">
+      <h1 class="display">Indique um dono de empresa <span class="gold">para o Cúpula.</span></h1>
+      <p>Indicação registrada em nome de <b id="embNome">seu embaixador</b>. O ALTUM fala com a pessoa em até 2 dias úteis.</p>
+    </section>
+
+    <section class="painel">
+      <div id="formBox">
+        <div class="regra">
+          <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="none" stroke="#8A6E1E"/><path d="M10 5.5v5.5M10 13.6v.9" stroke="#8A6E1E" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <div><b>Vale quem chegou primeiro.</b> Se a pessoa já estiver em conversa com o ALTUM, a página avisa na hora e a indicação não é registrada. Comissão só para empresas no perfil do Cúpula: R$500 mil ou mais por ano e 2 anos ou mais de operação.</div>
+        </div>
+
+        <form id="form" novalidate>
+          <input class="sr" type="text" name="site" id="site" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <div class="form-row two">
+            <div class="field" id="fNome">
+              <label for="nome">Nome do indicado</label>
+              <input id="nome" type="text" placeholder="Nome e sobrenome" autocomplete="off">
+              <p class="err">Faltou o nome de quem você indica.</p>
+            </div>
+            <div class="field" id="fEmpresa">
+              <label for="empresa">Empresa</label>
+              <input id="empresa" type="text" placeholder="Nome da empresa" autocomplete="off">
+              <p class="err">Faltou a empresa.</p>
+            </div>
+          </div>
+
+          <div class="form-row two">
+            <div class="field" id="fWhats">
+              <label for="whats">WhatsApp do indicado</label>
+              <input id="whats" type="tel" inputmode="tel" placeholder="(61) 90000-0000" autocomplete="off">
+              <p class="err">Confira o WhatsApp, com DDD.</p>
+            </div>
+            <div class="field" id="fEmail">
+              <label for="email">E-mail do indicado <span class="opt">(opcional)</span></label>
+              <input id="email" type="email" placeholder="nome@empresa.com.br" autocomplete="off">
+              <p class="err">Confira o e-mail.</p>
+            </div>
+          </div>
+
+          <div class="form-row two">
+            <div class="field" id="fFaixa">
+              <label for="faixa">Faturamento anual</label>
+              <select id="faixa">
+                <option value="">Selecione</option>
+                <option>Até R$500 mil</option>
+                <option>R$500 mil a R$1 mi</option>
+                <option>R$1 mi a R$5 mi</option>
+                <option>R$5 mi a R$20 mi</option>
+                <option>Acima de R$20 mi</option>
+              </select>
+              <p class="err">Escolha a faixa.</p>
+            </div>
+            <div class="field" id="fAnos">
+              <label for="anos">Anos de operação</label>
+              <select id="anos">
+                <option value="">Selecione</option>
+                <option>Menos de 2 anos</option>
+                <option>2 a 5 anos</option>
+                <option>5 a 10 anos</option>
+                <option>Mais de 10 anos</option>
+              </select>
+              <p class="err">Escolha o tempo de operação.</p>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="motivo">Por que essa empresa está no ponto <span class="opt">(opcional)</span></label>
+            <textarea id="motivo" placeholder="Duas ou três linhas: o momento da empresa e o teto que o dono enfrenta hoje."></textarea>
+          </div>
+
+          <label class="consent" id="fAut">
+            <input type="checkbox" id="aut">
+            <span>A pessoa indicada sabe da indicação e autorizou o contato do ALTUM.</span>
+          </label>
+
+          <div class="acoes">
+            <button class="btn-gold" type="submit" id="enviar">Registrar indicação
+              <svg width="16" height="10" viewBox="0 0 16 10" aria-hidden="true"><path d="M0 5h14M10 1l4 4-4 4" stroke="currentColor" fill="none" stroke-width="1.4"/></svg>
+            </button>
+            <p class="falha" id="falha" role="alert">Não conseguimos registrar agora. Tente de novo em instantes.</p>
+          </div>
+        </form>
+      </div>
+
+      <div class="estado ok" id="estadoOk" aria-live="polite">
+        <div class="marca"><svg width="22" height="16" viewBox="0 0 22 16" aria-hidden="true"><path d="M1.5 8.5l6 6L20.5 1.5" stroke="#B8922A" stroke-width="2" fill="none"/></svg></div>
+        <h2 class="display">Indicação registrada no seu nome.</h2>
+        <p>O ALTUM fala com <span id="okNome">a pessoa</span> em até 2 dias úteis. Você acompanha com a gente pelo WhatsApp.</p>
+        <p class="aviso" id="okFora" hidden>Pelo que você informou, a empresa está abaixo do perfil do Cúpula. A indicação fica registrada, mas pela regra do programa só gera comissão dentro do perfil.</p>
+        <div class="acoes"><button class="btn-line" type="button" data-nova>Indicar outra empresa</button></div>
+      </div>
+
+      <div class="estado dup" id="estadoDup" aria-live="polite">
+        <div class="marca"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 4.5v7M10 14.6v.9" stroke="#8A6E1E" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <h2 class="display"><span id="dupNome">Essa pessoa</span> já está no processo comercial do ALTUM.</h2>
+        <p>Pela regra do programa, vale quem chegou primeiro. Por isso esta indicação não foi registrada no seu nome. Se você acha que é engano, fale com a gente.</p>
+        <div class="acoes">
+          <a class="btn-line" href="https://wa.me/5561991933909" target="_blank" rel="noopener">Falar com o ALTUM</a>
+          <button class="btn-line" type="button" data-nova>Indicar outra empresa</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <p class="rod"><span>ALTUM</span> · Elevação que gera legado.</p>
+</main>
+
+<script>
+(function(){
+  var codigo = (location.pathname.split('/i/')[1] || '').split('/')[0].toLowerCase().replace(/[^a-z0-9]/g,'');
+  var $ = function(id){ return document.getElementById(id); };
+
+  function invalido(){ $('conteudo').style.display='none'; $('invalido').style.display='block'; }
+  if (!codigo) { invalido(); return; }
+
+  fetch('/api/embaixador?c=' + encodeURIComponent(codigo))
+    .then(function(r){ if (r.status === 404) { invalido(); return null; } return r.json(); })
+    .then(function(j){ if (j && j.ok && j.nome) $('embNome').textContent = j.nome; })
+    .catch(function(){});
+
+  function digitos(s){ return String(s||'').replace(/\D/g,''); }
+  $('whats').addEventListener('input', function(e){
+    var d = digitos(e.target.value).slice(0,11), o = d;
+    if (d.length > 2) o = '(' + d.slice(0,2) + ') ' + d.slice(2);
+    if (d.length > 7) o = '(' + d.slice(0,2) + ') ' + d.slice(2, d.length - 4) + '-' + d.slice(-4);
+    e.target.value = o;
+  });
+
+  function marca(id, ruim){ $(id).classList.toggle('has-error', !!ruim); return !ruim; }
+
+  function mostrar(qual){
+    $('formBox').style.display = qual ? 'none' : 'block';
+    $('estadoOk').style.display = qual === 'ok' ? 'block' : 'none';
+    $('estadoDup').style.display = qual === 'dup' ? 'block' : 'none';
+    window.scrollTo({ top: document.querySelector('.painel').offsetTop - 24, behavior: 'smooth' });
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll('[data-nova]'), function(b){
+    b.addEventListener('click', function(){ $('form').reset(); $('okFora').hidden = true; mostrar(null); $('nome').focus(); });
+  });
+
+  $('form').addEventListener('submit', function(ev){
+    ev.preventDefault();
+    $('falha').style.display = 'none';
+    var nome = $('nome').value.trim(), empresa = $('empresa').value.trim(), whats = digitos($('whats').value);
+    var email = $('email').value.trim(), faixa = $('faixa').value, anos = $('anos').value;
+    var ok = true;
+    ok = marca('fNome', nome.length < 2) && ok;
+    ok = marca('fEmpresa', empresa.length < 2) && ok;
+    ok = marca('fWhats', whats.length < 10 || whats.length > 11) && ok;
+    ok = marca('fEmail', email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) && ok;
+    ok = marca('fFaixa', !faixa) && ok;
+    ok = marca('fAnos', !anos) && ok;
+    ok = marca('fAut', !$('aut').checked) && ok;
+    if (!ok) { var e = document.querySelector('.has-error'); if (e) e.scrollIntoView({ behavior:'smooth', block:'center' }); return; }
+
+    var btn = $('enviar'); btn.disabled = true;
+    fetch('/api/indicar', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ codigo: codigo, nome: nome, empresa: empresa, whatsapp: whats, email: email, faixa: faixa, anos: anos,
+        motivo: $('motivo').value.trim(), autorizou: $('aut').checked, site: $('site').value })
+    }).then(function(r){ return r.json().then(function(j){ return { s: r.status, j: j }; }); })
+      .then(function(x){
+        btn.disabled = false;
+        if (x.s === 200 && x.j.ok) {
+          $('okNome').textContent = x.j.nome || 'a pessoa';
+          $('okFora').hidden = !x.j.fora_do_perfil;
+          mostrar('ok');
+        } else if (x.s === 409) {
+          $('dupNome').textContent = x.j.nome || 'Essa pessoa';
+          mostrar('dup');
+        } else if (x.s === 404) {
+          invalido();
+        } else {
+          $('falha').style.display = 'block';
+        }
+      })
+      .catch(function(){ btn.disabled = false; $('falha').style.display = 'block'; });
+  });
+})();
+</script>
+</body>
+</html>
