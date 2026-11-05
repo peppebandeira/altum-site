@@ -8,6 +8,7 @@
     { "source": "/convidados/:path*", "destination": "https://altum-presenca.vercel.app/convidados/:path*" }
   ],
   "redirects": [
-    { "source": "/presenca", "destination": "https://altum-presenca.vercel.app/login", "permanent": false }
+    { "source": "/presenca", "destination": "https://altum-presenca.vercel.app/login", "permanent": false },
+    { "source": "/i/:codigo", "destination": "https://app.syncro.chat/f/indicacao-de-embaixador-WJiZmFsyWD?utm_source=embaixador&utm_medium=indicacao&utm_campaign=:codigo", "permanent": false }
   ]
 }
