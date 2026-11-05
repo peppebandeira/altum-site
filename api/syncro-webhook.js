@@ -15,8 +15,16 @@ module.exports = async (req, res) => {
   if (!leadId) return res.status(200).json({ ok: true, ignorado: 'sem lead' });
 
   try {
-    const j = await S.sx('GET', '/leads/' + leadId + '?include=sales');
-    const lead = j.lead || j.data || j;
+    // O evento pode chegar antes de o Syncro gravar a etapa nova: se o evento diz uma etapa e a API outra, espera e relê.
+    const alvo = Number(d.new_stage_id || d.stage_id) || null;
+    let lead;
+    for (let i = 0; i < 4; i++) {
+      const j = await S.sx('GET', '/leads/' + leadId + '?include=sales');
+      lead = j.lead || j.data || j;
+      if (!alvo || lead.stage_id === alvo) break;
+      await new Promise(r => setTimeout(r, 2500));
+    }
+    console.log('lead', leadId, 'etapa', lead.stage_id, 'evento diz', alvo);
     let r = { ok: true, ignorado: 'nada a fazer' };
     if (lead.pipeline_id === S.IDS.embaixadores && lead.stage_id === S.IDS.etapaAtivo) r = await ativarEmbaixador(lead);
     else if (lead.pipeline_id === S.IDS.aquisicao && lead.stage_id === S.IDS.etapaGanho && S.codigoDaTag(lead.tags)) r = await lancarComissao(lead);
