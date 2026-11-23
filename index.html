@@ -631,6 +631,8 @@ section{ position:relative; padding:96px 0; scroll-margin-top:88px; }
 .foot-tag{ font-family:var(--display); font-size:clamp(1rem,1.4vw,1.15rem); color:var(--gold); margin:0; font-style:italic; }
 .foot-bot{ display:flex; flex-wrap:wrap; gap:12px 28px; justify-content:space-between; padding-top:26px; }
 .foot-bot p{ margin:0; font-size:11px; letter-spacing:.10em; color:var(--cream-22); text-transform:uppercase; }
+.foot-cnpj{ white-space:nowrap; }
+@media (max-width:600px){ .foot-sep{ display:none; } .foot-cnpj{ display:block; margin-top:4px; } }
 
 /* ── Grão de filme global: nada chapado ── */
 .grain{
@@ -1107,7 +1109,7 @@ section{ position:relative; padding:96px 0; scroll-margin-top:88px; }
       <p class="foot-tag">Elevação que gera legado.</p>
     </div>
     <div class="foot-bot">
-      <p>© 2026 ALTUM</p>
+      <p>© 2026 ALTUM Ecossistema Empresarial LTDA<span class="foot-sep"> · </span><span class="foot-cnpj">CNPJ 49.667.952/0001-52</span></p>
       <p>Privacidade · LGPD</p>
     </div>
   </div>

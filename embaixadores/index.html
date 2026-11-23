@@ -438,6 +438,8 @@ section{ position:relative; scroll-margin-top:72px; }
 .foot-tag{ font-family:var(--display); font-size:clamp(1rem,1.4vw,1.15rem); color:var(--gold); margin:0; font-style:italic; }
 .foot-bot{ display:flex; flex-wrap:wrap; gap:12px 28px; justify-content:space-between; padding-top:24px; }
 .foot-bot p{ margin:0; font-size:11px; letter-spacing:.1em; color:var(--cream-45); text-transform:uppercase; }
+.foot-cnpj{ white-space:nowrap; }
+@media (max-width:600px){ .foot-sep{ display:none; } .foot-cnpj{ display:block; margin-top:4px; } }
 .foot-bot a:hover{ color:var(--gold); }
 
 
@@ -932,7 +934,7 @@ section{ position:relative; scroll-margin-top:72px; }
       <p class="foot-tag">Elevação que gera legado.</p>
     </div>
     <div class="foot-bot">
-      <p>© 2026 ALTUM</p>
+      <p>© 2026 ALTUM Ecossistema Empresarial LTDA<span class="foot-sep"> · </span><span class="foot-cnpj">CNPJ 49.667.952/0001-52</span></p>
       <p><a href="/">altumecossistema.com.br</a></p>
     </div>
   </div>
